@@ -1,9 +1,9 @@
 import yfinance as yf 
 import streamlit as st
 import pandas as pd
+import os
 from PIL import Image
 #from stocks.tickers import list_of_tickers
-
 
 
 
@@ -19,8 +19,8 @@ For Each Symbol Listed on the SP500 Using Yahoo Finance
 
 st.header('Performance This Decade') #Check Performance In This Past Decade
 
-
-df = pd.read_csv('sp_500_stocks.csv')
+workingDir = os.getcwd()
+df = pd.read_csv(f'{workingDir}/sp_500_stocks.csv')
 symbols = df['Ticker'].values.tolist()
 symbols.sort()
 Ticker_Symbol_Input = st.selectbox('Select an American Stock',symbols)
