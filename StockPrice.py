@@ -12,8 +12,8 @@ from PIL import Image
 image = Image.open('wallstreet_photo.jpg')
 st.image(image, use_column_width=True)
 st.write("""
-# Price and Volume in the Last 10 Years
-For Each Symbol Listed on the SP500 Using Yahoo Finance
+# Price and Volume (last 10 Years)
+For each symbol listed on the SP500
 """)
 
 
