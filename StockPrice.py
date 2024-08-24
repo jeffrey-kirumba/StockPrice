@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import os
 from PIL import Image
+import datetime
 #from stocks.tickers import list_of_tickers
 
 
@@ -27,9 +28,9 @@ Ticker_Symbol_Input = st.selectbox('Select an American Stock',symbols)
 
 #get data on this ticker
 tickerData = yf.Ticker(Ticker_Symbol_Input)
-
-
-tickerDf = tickerData.history(period='1d', start='2011-6-30', end='2021-6-30')
+today = datetime.datetime.now()
+ten_years_ago = today - datetime.timedelta(days=3650)
+tickerDf = tickerData.history(period='1d', start=ten_years_ago.strftime('%Y-%m-%d'), end=today.strftime('%Y-%m-%d'))
 
 
 # Open	High	Low	Close	Volume	Dividends	Stock Splits
